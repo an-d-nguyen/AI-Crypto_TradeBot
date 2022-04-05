@@ -41,9 +41,10 @@ class LSTMModel:
 
     def evaluate(self, x_test, y_test):
         print(">>> Evaluating Model...")
-        predictions = self.predict(x_test)
+        x_test = x_test.reshape(-1, 1, len(x_test[0]))
+        predictions = np.array(tf.argmax(self.model.predict(x_test), 1))
 
-        expected_increase, found_increase, expected_decrease, found_decrease = 0
+        expected_increase, found_increase, expected_decrease, found_decrease = 0,0,0,0
 
         for i in range(0, len(predictions)):
             if y_test[i] == 0:
@@ -59,8 +60,6 @@ class LSTMModel:
         print(">>>>>> Accuracy: {}".format(accuracy))
         print(">>>>>> Increase Accuracy: {}%".format((found_increase*100)/expected_increase))
         print(">>>>>> Decrease Accuracy: {}%".format((found_decrease*100)/expected_decrease))
-        loss = self.model.evaluate(x_test, y_test)
-        print(">>>>>> Lost: {}".format(loss))
 
     def predict(self, sample):
         sample = sample.reshape(-1,1,len(sample[0]))
