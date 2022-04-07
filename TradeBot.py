@@ -9,7 +9,7 @@ class TradeBot:
     def __init__(self, model):
         self.advisor = model
         self.account = DemoAccount()
-        self.trade_amount = 100
+        self.trade_amount = 60000
 
     def buy(self):
         prev_bought_at = self.account.btc_bought_at          # Last bought price

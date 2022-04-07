@@ -1,6 +1,6 @@
 class DemoAccount:
     def __init__(self):
-        self.balance = 1000
+        self.balance = 1000000
         self.btc_amount = 0
         self.btc_balance = 0
         self.btc_price = 0

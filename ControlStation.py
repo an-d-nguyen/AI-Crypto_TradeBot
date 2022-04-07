@@ -27,7 +27,16 @@ if __name__ == "__main__":
         test_model.evaluate(x_test,y_test)
 
         trade_bot = TradeBot(test_model)
+        initial_amt = trade_bot.account.balance
         trade_bot.runSimulation(x_test, prices)
+        final_amt = trade_bot.account.balance + trade_bot.account.btc_balance 
+        profit_loss = final_amt - initial_amt
+
+        print("##########################################   Summary   ##########################################")
+        print("#           Initial Balance: ${:.2f}".format(initial_amt))
+        print("#           Final Balance:   ${:.2f}".format(final_amt))
+        print("#           Profit/Loss:     ${:.2f} ({:.2f}%)".format(profit_loss, (profit_loss/initial_amt)*100))
+        print("#################################################################################################")
 
     else:
         print(">>> Please use an argument next time: --train_and_trade")
