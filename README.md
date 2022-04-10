@@ -60,7 +60,7 @@ To change this, you just need to change the value assigned to `TRADE_AMOUNT` in 
 ### Trade Frequency
 This is the freqency mentioned above. The default frequency is set to every 6 hour. It means that for every 6 hour, our TradeBot will attempt to make a trade.
 
-To change this, you just need to change the value assigned to `TRADE_FREQUENCT` in `config.py` file.
+To change this, you just need to change the value assigned to `TRADE_FREQUENCY` in `config.py` file.
 
 ### Display Speed
 This is only for display purposes. This value represents the speed at which our demo will run. The value should range from 0 to 1. At 1, the script will 
