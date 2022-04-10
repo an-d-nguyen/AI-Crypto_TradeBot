@@ -1,4 +1,74 @@
-# AI Crypto TradeBot
+<style>
+  @font-face {
+  font-family: "neon-tubes-2-regular";
+  src:
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("woff"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("opentype"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("truetype")
+  ;
+}
+
+.neon-red {
+  --neon: hsl(355 100% 95%);
+  --neon-glow: hsl(355 98% 40%);
+}
+
+.neon-blue {
+  --neon: hsl(192 100% 95%);
+  --neon-glow: hsl(194 100% 40%);
+}
+
+h1 > i {
+  color: var(--neon);
+  text-shadow: 
+    0 0 20px var(--neon-glow),
+    0 0 2.5vmin var(--neon-glow),
+    0 0 5vmin var(--neon-glow),
+    0 0 10vmin var(--neon-glow),
+    0 0 15vmin var(--neon-glow);
+}
+
+@media (dynamic-range: high) {
+  .neon-red {
+    --neon-glow: color(display-p3 1 0 0);
+  }
+  
+  .neon-blue {
+    --neon-glow: color(display-p3 0 0.75 1);
+  }
+  
+  h1 > i {
+    text-shadow: 
+      0 0 2.5vmin var(--neon-glow),
+      0 0 10vmin var(--neon-glow),
+      0 0 15vmin var(--neon-glow);
+  }
+}
+
+h1 {
+  text-align: center;
+  font-size: 25vmin;
+  font-weight: normal;
+}
+
+html {
+  block-size: 100%;
+  inline-size: 100%;
+  background-color: hsl(0 0% 5%);
+}
+
+body {
+  min-block-size: 100%;
+  min-inline-size: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  display: grid;
+  place-content: center;
+  font-family: "neon-tubes-2-regular", sans-serif;
+}
+</style>
+
+<h1> AI Crypto TradeBot </h1>
 
 
 ## Introduction
@@ -14,7 +84,7 @@ For Example, the default `TRADE_FREQUENCY` is set to `6`, which means that every
 If you change the frequency, it will still follow the same steps.
 
 ### General Bot Rules
-1. As mentioned above, whenever our TradeBot decides to make a trade, the BUY/SELL order will be a fixed amount (default to be $100/trade). This can be changed in the config file.
+1. As mentioned above, whenever our TradeBot decides to make a trade, the BUY/SELL order will be a fixed amount (default to be $60,000/trade). This can be changed in the config file.
 2. Consecutive BUY only if the price has gone down.
 3. Only SELL at a profit.
 
@@ -47,13 +117,13 @@ python3 ControlStation.py --train_and_trade
 Once you've cloned the project, you can make some adjustment in the `config.py` file.
 
 ### Initial Balance
-This is basically the budget that you give our TradeBot to trade. The default balance is set to $1000.
+This is basically the budget that you give our TradeBot to trade. The default balance is set to $1000000.
 
 To change this, you just need to change the value assigned to `INITIAL_BALANCE` in `config.py` file.
 
 ### Trade Amount
-This is the fixed amount mentioned above, which our TradeBot trade in batches. The default amount is set to $100 per trade. It means that
-everytime our bot decide to BUY or SELL, it will be always $100 worth of BTC.
+This is the fixed amount mentioned above, which our TradeBot trade in batches. The default amount is set to $60,000 per trade. It means that
+everytime our bot decide to BUY or SELL, it will be always $60,000 worth of BTC.
 
 To change this, you just need to change the value assigned to `TRADE_AMOUNT` in `config.py` file.
 
@@ -64,6 +134,6 @@ To change this, you just need to change the value assigned to `TRADE_FREQUENCT` 
 
 ### Display Speed
 This is only for display purposes. This value represents the speed at which our demo will run. The value should range from 0 to 1. At 1, the script will 
-run slow enough for user to read the output as our TradeBot making decisions. The default value is set to 0.2
+run slow enough for user to read the output as our TradeBot making decisions. The default value is set to 0.1
 
 To change this, you just need to change the value assigned to `DISPLAY_SPEED` in `config.py` file.
