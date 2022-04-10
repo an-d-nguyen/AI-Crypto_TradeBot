@@ -30,11 +30,11 @@ git clone https://github.com/4m3r1c4nP13/AI-Crypto_TradeBot.git
 3. Run the command to start the demonstration
 - Windows:
 ```Bash
-python ControlStation --train_and_trade
+python ControlStation.py --train_and_trade
 ```
 - Unix:
 ```Bash
-python3 ControlStation --train_and_trade
+python3 ControllStation.py --train_and_trade
 ```
 
 
