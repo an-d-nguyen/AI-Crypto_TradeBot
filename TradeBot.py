@@ -9,7 +9,8 @@ class TradeBot:
     def __init__(self, model):
         self.advisor = model
         self.account = DemoAccount()
-        self.trade_amount = 100
+        self.trade_amount = TRADE_AMOUNT
+        self.initial_balance = self.account.balance
 
     def buy(self):
         prev_bought_at = self.account.btc_bought_at          # Last bought price
@@ -50,10 +51,9 @@ class TradeBot:
                 print("#################################################################################################")
                 print("##########################################   DAY ", day_count, "   #########################################")
 
-
-            if i % 6 == 0: # Perform a prediction every 6 hours
+            if i % TRADE_FREQUENCY == 0: # Perform a prediction every 6 hours
                 prediction = self.advisor.predict(np.array([samples[i]]))
-                #btc_price = samples[i][len(samples[i])-1]
+                # btc_price = samples[i][len(samples[i])-1]
                 btc_price = prices[i]
 
                 if self.account.btc_price != 0:
@@ -68,9 +68,16 @@ class TradeBot:
 
                 self.account.btc_balance = self.account.btc_amount * btc_price
 
-                time.sleep(0.1)  # Only for Visual Purposes
+                time.sleep(DISPLAY_SPEED)  # Only for Visual Purposes
 
         print("#################################################################################################")
         print("#           Account Balance: $", (self.account.balance + self.account.btc_balance), " BTC: $",
               self.account.btc_balance, " USD: $", self.account.balance, "")
+        print("#################################################################################################")
+        print()
+        print("##########################################   Summary   ##########################################")
+        print("#           Initial Balance: ${:.2f}".format(self.initial_balance))
+        print("#           Final Balance:   ${:.2f}".format(self.account.balance+self.account.btc_balance))
+        print("#           Profit/Loss:     ${:.2f} ({:.2f}%)".format(self.account.balance+self.account.btc_balance-self.initial_balance,
+                                                                      ((self.account.balance+self.account.btc_balance-self.initial_balance) / self.initial_balance) * 100))
         print("#################################################################################################")

@@ -13,3 +13,12 @@ TESTING_MONTHS = ["2020_10"]
 CHANGE_RATE_THRESHOLD = 0.005
 TRAINING_WINDOW = 360 # Window to use for training in minutes
 LABELING_WINDOW = 360 # How far ahead to look for labeling / prediction
+
+# ################ DO NOT CHANGE THE ABOVE ######################
+
+# Customization
+
+INITIAL_BALANCE = 1000
+TRADE_AMOUNT = 100
+TRADE_FREQUENCY = 6
+DISPLAY_SPEED = 0.2

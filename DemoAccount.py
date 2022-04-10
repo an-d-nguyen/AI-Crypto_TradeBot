@@ -1,6 +1,9 @@
+from config import *
+
+
 class DemoAccount:
     def __init__(self):
-        self.balance = 1000
+        self.balance = INITIAL_BALANCE
         self.btc_amount = 0
         self.btc_balance = 0
         self.btc_price = 0
