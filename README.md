@@ -34,7 +34,7 @@ python ControlStation.py --train_and_trade
 ```
 - Unix:
 ```Bash
-python3 ControllStation.py --train_and_trade
+python3 ControlStation.py --train_and_trade
 ```
 
 
