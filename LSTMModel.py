@@ -57,9 +57,9 @@ class LSTMModel:
                     found_increase += 1
 
         accuracy = accuracy_score(y_test, predictions)
-        print(">>>>>> Accuracy: {}".format(accuracy))
-        print(">>>>>> Increase Accuracy: {}%".format((found_increase*100)/expected_increase))
-        print(">>>>>> Decrease Accuracy: {}%".format((found_decrease*100)/expected_decrease))
+        print(">>>>>> Accuracy: {:.2f}%".format(accuracy*100))
+        print(">>>>>> Increase Accuracy: {:.2f}%".format((found_increase*100)/expected_increase))
+        print(">>>>>> Decrease Accuracy: {:.2f}%".format((found_decrease*100)/expected_decrease))
 
     def predict(self, sample):
         sample = sample.reshape(-1,1,len(sample[0]))
