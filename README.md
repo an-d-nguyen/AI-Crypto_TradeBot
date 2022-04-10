@@ -19,8 +19,13 @@ If you change the frequency, it will still follow the same steps.
 3. Only SELL at a profit.
 
 
-## Installation
+## Requirements
+User should have `TensorFlow` installed first on the computer in order to train our AI.
 
+Detailed instructions are provided at [This Link](https://www.tensorflow.org/install/pip). Please follow the steps and make sure `TensorFlow` is installed
+before proceed to the Installation section.
+
+## Installation
 
 1. Clone the project
 ```Bash
