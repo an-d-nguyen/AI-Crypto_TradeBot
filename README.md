@@ -29,7 +29,7 @@ before proceed to the Installation section.
 
 1. Clone the project
 ```Bash
-git clone https://github.com/4m3r1c4nP13/AI-Crypto_TradeBot.git
+https://github.com/an-d-nguyen/AI-Crypto_TradeBot.git
 ```
 2. Do some customziations if needed in the next section 
 3. Run the command to start the demonstration
